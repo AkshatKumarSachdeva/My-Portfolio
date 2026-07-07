@@ -5,9 +5,13 @@ import {Tooltip} from 'react-tooltip'
 
 import gsap from 'gsap';
 import {useGSAP} from "@gsap/react";
+import useWindowStore from '#store/window'
+
 
 const Dock = () => {
     const dockRef = useRef(null);
+    const {openWindow,closeWindow,windows} =useWindowStore();
+
     useGSAP(()=>{
         const dock= dockRef.current;
         if(!dock) return;
@@ -39,7 +43,22 @@ const Dock = () => {
             dock.removeEventListener("mouseleave",handleMouseLeave);
         }
     },[]);
-    const toggleApp = (app) => {};
+    const toggleApp = (app) => {
+        if(!app.canOpen) return;
+        const win=windows[app.id];
+        if(!win)
+        {
+            console.error(`Window with id ${app.id} not found`);
+            return;
+        }
+        if(win.isOpen){
+            closeWindow(app.id);
+        }
+        else{
+            openWindow(app.id);
+        }
+
+    };
 
 
     return (

@@ -8,7 +8,7 @@ const App = () => {
       <Welcome/>
       <Dock/>
     </main>
-  ) 
+  )  
 }
 export default App
 
