@@ -100,7 +100,7 @@ body {
   }
 
   #window-controls {
-    @apply flex gap-2;
+    @apply flex gap-3 py-2;
 
     .close {
       @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
@@ -116,7 +116,7 @@ body {
   }
 
   #window-header {
-    @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
+    @apply flex items-center justify-between px-4 py-2 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
   }
 
   #safari {
